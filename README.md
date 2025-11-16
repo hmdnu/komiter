@@ -2,6 +2,7 @@
 
 ## What does it do?
 it generates git commit message by reading git diff using AI, now its only support gemini by default
+
 Komiter is Committer in indonesian
 
 
