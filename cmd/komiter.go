@@ -3,10 +3,10 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/hmdnu/committer/internal/ai"
-	"github.com/hmdnu/committer/internal/clip"
-	"github.com/hmdnu/committer/internal/git"
-	"github.com/hmdnu/committer/pkg/prompt"
+	"github.com/hmdnu/komiter/internal/ai"
+	"github.com/hmdnu/komiter/internal/clip"
+	"github.com/hmdnu/komiter/internal/git"
+	"github.com/hmdnu/komiter/pkg/prompt"
 	"github.com/spf13/cobra"
 )
 
@@ -25,7 +25,7 @@ func RunCommiter(command *cobra.Command, args []string) {
 	if IsCopyToClipboard {
 		clip.CopyToClipboard(response)
 		fmt.Println(response)
-		fmt.Println("Commit message copied to clipboard")
+		fmt.Println("\nCommit message copied to clipboard")
 		return
 	}
 	fmt.Println(response)

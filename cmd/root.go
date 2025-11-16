@@ -1,6 +1,3 @@
-/*
-Copyright © 2025 hmdnu
-*/
 package cmd
 
 import (
@@ -14,7 +11,7 @@ var (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "committer",
+	Use:   "komiter",
 	Short: "Use AI to write your git commits",
 	Long:  `Use AI to write your git commits`,
 	Run:   RunCommiter,

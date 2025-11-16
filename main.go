@@ -1,11 +1,7 @@
-/*
-Copyright © 2025 hmdnu
-*/
 package main
 
-import "github.com/hmdnu/committer/cmd"
+import "github.com/hmdnu/komiter/cmd"
 
 func main() {
 	cmd.Execute()
-
 }

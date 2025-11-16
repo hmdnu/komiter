@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/hmdnu/committer/internal/env"
+	"github.com/hmdnu/komiter/internal/env"
 )
 
 type GeminiResponse struct {
