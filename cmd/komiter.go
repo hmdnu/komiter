@@ -13,7 +13,7 @@ import (
 func RunCommiter(command *cobra.Command, args []string) {
 	gitDiff, err := git.GetGitDiff()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error: failed reading git diff", err)
 		return
 	}
 	prompt := prompt.GenerateCommitPrompt(gitDiff)
