@@ -35,11 +35,11 @@ func HttpRequest(prompt string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	req, err := http.NewRequest(http.MethodPost, env.API_URL, bytes.NewBuffer(payload))
+	req, err := http.NewRequest(http.MethodPost, env.GetApiToken().API_URL, bytes.NewBuffer(payload))
 	if err != nil {
 		return "", err
 	}
-	req.Header.Set("X-goog-api-key", env.API_TOKEN)
+	req.Header.Set("X-goog-api-key", env.GetApiToken().API_TOKEN)
 	req.Header.Set("Content-Type", "application/json")
 	fmt.Println("generating commit message...")
 	res, err := client.Do(req)

@@ -1,22 +1,20 @@
 package env
 
 import (
-	"log"
 	"os"
-
-	"github.com/joho/godotenv"
 )
 
-var (
-	API_URL   = ""
-	API_TOKEN = ""
-)
+type ApiToken struct {
+	API_URL   string
+	API_TOKEN string
+}
 
-func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalln("Error: Failed loading .env")
+func GetApiToken() *ApiToken {
+	token := os.Getenv("KOMITER_API_TOKEN")
+	apiUrl := os.Getenv("KOMITER_API_URL")
+
+	return &ApiToken{
+		API_URL:   apiUrl,
+		API_TOKEN: token,
 	}
-	API_URL = os.Getenv("API_URL")
-	API_TOKEN = os.Getenv("API_TOKEN")
 }
