@@ -20,5 +20,9 @@ func GetGitDiff() (string, error) {
 		}
 		return "", errors.New("Error: not a git repository")
 	}
+
+	if stdout.String() == "" {
+		return "", errors.New("\nNo files staged")
+	}
 	return stdout.String(), nil
 }
