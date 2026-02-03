@@ -16,7 +16,7 @@ func RunCommiter(command *cobra.Command, args []string) {
 		fmt.Println("Error: failed reading git diff", err)
 		return
 	}
-	prompt := prompt.GenerateCommitPrompt(gitDiff)
+	prompt := prompt.GenerateCommitPrompt(gitDiff, CommitScope)
 	response, err := ai.HttpRequest(prompt)
 	if err != nil {
 		fmt.Println("Error: failed generating response", err)

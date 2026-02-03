@@ -8,6 +8,7 @@ import (
 
 var (
 	IsCopyToClipboard bool
+	CommitScope       string
 )
 
 var rootCmd = &cobra.Command{
@@ -26,4 +27,5 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().BoolVarP(&IsCopyToClipboard, "clipboard", "c", false, "Copy to clipboard")
+	rootCmd.Flags().StringVarP(&CommitScope, "commit scope", "s", "", "Provide commit scope")
 }

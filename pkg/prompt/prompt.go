@@ -1,8 +1,12 @@
 package prompt
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-func GenerateCommitPrompt(gitDiff string) string {
+func GenerateCommitPrompt(gitDiff string, scope string) string {
+	scope = strings.TrimSpace(scope)
 	return fmt.Sprintf(`
 You are an assistant that writes git commit messages following the Conventional Commits specification.
 Read the following git diff and generate a single commit message that follows these rules:
@@ -18,10 +22,10 @@ Read the following git diff and generate a single commit message that follows th
    - ci: for CI-related changes
    - build: for build system changes
    - revert: for reverting a previous commit
-2. If possible, infer a scope from the changed files or directories.
-   Example scopes: api, ui, auth, db, config, tests, etc.
-   Format: type(scope): summary
-   If you’re not sure, omit the scope.
+2. **Scope Handling**: 
+   - THE SCOPE TO USE IS: "%s"
+   - If a scope is provided above, you MUST use it in the format: type(scope): summary.
+   - If the scope above is empty, infer a scope from the changed files (e.g., api, ui, auth) or omit it if unsure.
 3. The summary:
    - Must be in the imperative mood (e.g. "add user validation", not "added" or "adds").
    - Max ~72 characters.
@@ -38,5 +42,5 @@ Read the following git diff and generate a single commit message that follows th
 Now, here is the git diff:
 %s
 Return ONLY the commit message, nothing else.
-	`, gitDiff)
+	`, scope, gitDiff)
 }
